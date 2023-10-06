@@ -1,0 +1,117 @@
+body {
+    background-color: #2c3e50;
+    font: 24px "Margarine", sans-serif;
+}
+
+.text {
+    color: #ecf0f1;
+    text-align: center;
+    margin-top: 20%;
+    font-size: 48px;
+
+    &.text-large {
+        font-size: 72px;
+    }
+}
+
+.button-wrapper {
+    margin: 20% 0;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+button {
+    background: transparent;
+    -webkit-tap-highlight-color: transparent;
+    color: #fff;
+    border: 3px solid #fff;
+    border-radius: 50px;
+    padding: 0.8rem 2rem;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transition: 0.1s ease-in-out;
+    letter-spacing: 2px;
+
+    &:active {
+        transform: scale(0.98);
+    }
+
+    &:hover .parrot:before {
+        content: "Do it!";
+        width: 70px;
+    }
+
+    .parrot {
+        position: absolute;
+        width: 60px;
+        text-align: center;
+        animation: blink 0.8s infinite;
+        color: transparent;
+
+        &:before {
+            content: "Click Me!";
+        }
+
+        &:nth-child(1) {
+            top: -30px;
+            left: -40px;
+            font: 12px/1 "Margarine", sans-serif;
+            transform: rotate(-20deg);
+            animation-duration: 0.5s;
+        }
+
+        &:nth-child(2) {
+            font: 12px/1 "Margarine", sans-serif;
+            right: -40px;
+            top: -20px;
+            transform: rotate(15deg);
+            animation-duration: 0.3s;
+        }
+
+        &:nth-child(3) {
+            font: 16px/1 "Margarine", sans-serif;
+            top: -60px;
+            left: 15px;
+            transform: rotate(10deg);
+            animation-duration: 1s;
+        }
+
+        &:nth-child(4) {
+            font: 18px/1 "Margarine", sans-serif;
+            top: -70px;
+            left: 95px;
+            transform: rotate(2deg);
+            animation-duration: 0.7s;
+        }
+
+        &:nth-child(5) {
+            font: 14px/1 "Margarine", sans-serif;
+            top: 80px;
+            left: 105px;
+            transform: rotate(-20deg);
+            animation-duration: 0.8s;
+        }
+
+        &:nth-child(6) {
+            font: 12px/1 "Margarine", sans-serif;
+            top: 80px;
+            left: 5px;
+            transform: rotate(10deg);
+            animation-duration: 1.2s;
+        }
+    }
+}
+
+@keyframes blink {
+    25%,
+    75% {
+        color: transparent;
+    }
+    40%,
+    60% {
+        color: #fff;
+    }
+}
