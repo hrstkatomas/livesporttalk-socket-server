@@ -6,7 +6,8 @@
     "start": "bun run index.tsx",
     "dev": "bun --watch index.tsx",
     "build": "bun build index.tsx --outdir ./build",
-    "buildButtonClient": "bun build ./button/hydrateClient.tsx --outdir ./public"
+    "buildButton": "bun build button/hydrateButton.tsx --outdir ./public",
+    "buildClient": "bun build client/renderClient.tsx --outdir ./public"
   },
   "devDependencies": {
     "bun-types": "^1.0.4"

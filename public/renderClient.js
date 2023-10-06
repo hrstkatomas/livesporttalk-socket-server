@@ -22609,34 +22609,25 @@ var require_client = __commonJS((exports) => {
   var i;
 });
 
-// button/hydrateClient.tsx
+// client/renderClient.tsx
 var import_react2 = __toESM(require_react(), 1);
 var client = __toESM(require_client(), 1);
 
-// button/Button.tsx
+// client/Client.tsx
 var import_react = __toESM(require_react(), 1);
-function Button() {
-  const [count, setCount] = import_react.default.useState(0);
-  const onClick = () => {
-    fetch("/updateStats");
-    setCount((count2) => count2 + 1);
-  };
-  return import_react.default.createElement(import_react.default.Fragment, null, import_react.default.createElement("div", {
-    className: "text"
-  }, "Updates caused:"), import_react.default.createElement("div", {
-    className: "text text-large"
-  }, count), import_react.default.createElement("div", {
-    className: "button-wrapper"
-  }, import_react.default.createElement("button", {
-    onClick
-  }, "Cause an update!", Array.from({ length: 6 }, (v, i) => import_react.default.createElement("div", {
-    className: "parrot",
-    key: `parrot-${i}`
-  })))));
+function Client() {
+  import_react.useEffect(() => {
+    const onMessage = (event) => console.log(event.data);
+    socket.addEventListener("message", onMessage);
+    return () => socket.removeEventListener("message", onMessage);
+  }, []);
+  return import_react.default.createElement("div", null, "Listening to web sockets!");
 }
+var socket = new WebSocket("ws://localhost:4000/listener");
 
-// button/hydrateClient.tsx
+// client/renderClient.tsx
 var domNode = document.getElementById("root");
 if (!domNode)
   throw new Error("No root element found");
-client.hydrateRoot(domNode, import_react2.default.createElement(Button, null));
+var root = client.createRoot(domNode);
+root.render(import_react2.default.createElement(Client, null));
