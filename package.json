@@ -5,8 +5,10 @@
   "scripts": {
     "start": "bun run index.tsx",
     "dev": "bun --watch index.tsx",
-    "build": "bun build index.tsx --outdir ./build",
+    "devButton": "bun build button/hydrateButton.tsx --outdir ./public --watch",
+    "devClient": "bun build client/renderClient.tsx --outdir ./public --watch",
     "buildButton": "bun build button/hydrateButton.tsx --outdir ./public",
+    "build": "bun build index.tsx --outdir ./build",
     "buildClient": "bun build client/renderClient.tsx --outdir ./public"
   },
   "devDependencies": {
