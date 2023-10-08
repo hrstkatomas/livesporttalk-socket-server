@@ -97,7 +97,7 @@ const socketServer = Bun.serve<{
       }
     },
 
-    message(ws, data) {
+    message(ws) {
       // on whatever enforcer message udpate listeners
       if (ws.data.role === ENFORCER) {
         // TODO: create custom data instead of string
