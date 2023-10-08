@@ -4,7 +4,7 @@ import { App } from "./button/App.tsx";
 import { Button } from "./button/Button.tsx";
 
 const webServer = Bun.serve({
-  port: 3000,
+  port: process.env.WEB_SERVER_PORT,
   async fetch(req) {
     const url = new URL(req.url);
     switch (url.pathname) {
@@ -66,7 +66,7 @@ const socketServer = Bun.serve<{
   username: string;
   role: typeof ENFORCER | typeof LISTENER;
 }>({
-  port: 4000,
+  port: process.env.SOCKET_SERVER_PORT,
   fetch(req, server) {
     const username = "user_" + Math.random().toString(16).slice(12);
     const url = new URL(req.url);
