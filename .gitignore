@@ -130,7 +130,8 @@ dist
 .pnp.*
 
 # build dir
-build
+index.js
+public/*.js
 
 # project settings
 .idea

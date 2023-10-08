@@ -3,13 +3,14 @@
   "module": "index.tsx",
   "type": "module",
   "scripts": {
-    "start": "bun run index.tsx",
+    "start": "bun run ./index.js",
     "dev": "bun --watch index.tsx",
-    "devButton": "bun build button/hydrateButton.tsx --outdir ./public --watch",
-    "devClient": "bun build client/renderClient.tsx --outdir ./public --watch",
-    "buildButton": "bun build button/hydrateButton.tsx --outdir ./public",
-    "build": "bun build index.tsx --outdir ./build",
-    "buildClient": "bun build client/renderClient.tsx --outdir ./public"
+    "devButton": "bun run buildButton -- --watch",
+    "devClient": "bun run buildClient -- --watch",
+    "buildServer": "bun build --target=bun ./index.tsx --outfile=./index.js",
+    "buildButton": "bun build ./button/hydrateButton.tsx --outdir ./public --minify",
+    "buildClient": "bun build ./client/renderClient.tsx --outdir ./public --minify",
+    "build": "bun run buildServer && bun run buildButton && bun run buildClient"
   },
   "devDependencies": {
     "bun-types": "^1.0.4"
