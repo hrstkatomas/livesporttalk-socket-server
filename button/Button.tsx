@@ -24,7 +24,7 @@ export function Button() {
 
       <div className={"button-wrapper"}>
         <button onClick={onClick}>
-          Cause an update!
+          Cause an update!!!
           {Array.from({ length: 6 }, (v, i) => (
             <div key={`parrot-${i}`} className={"parrot"} />
           ))}

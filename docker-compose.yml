@@ -1,0 +1,14 @@
+version: "2"
+services:
+  webserver:
+    image: livesporttalk-socket-server
+    ports:
+      - "3000:3000"
+      - "4000:4000"
+    environment:
+      WEB_SERVER_PORT: 3000
+      SOCKET_SERVER_PORT: 4000
+    volumes:
+      - ./button:/usr/src/app/button
+      - ./client:/usr/src/app/client
+      - ./public:/usr/src/app/public
